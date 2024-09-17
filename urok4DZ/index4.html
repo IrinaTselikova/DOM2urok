@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p class="dropdown">Привет :)</p>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Dropdown button
+        </button>
+        <div class="menu dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+    </div>
+
+    <script>
+
+        // 1. Ко всем элементам, имеющим класс "dropdown-item" добавить еще один класс "super-dropdown", необходимо использовать методы forEach и querySelectorAll и свойство classList у элементов.
+        const dropDownEl = document.querySelectorAll('.dropdown-item');
+
+        dropDownEl.forEach(element => {
+            element.classList.add('super-dropdown');
+            // classList - это свойство позволяет не только просматривать текущие классы элемента, но и динамически добавлять, удалять или изменять их, улучшая интерактивность ваших веб-страниц.
+        });
+        console.log(dropDownEl);
+
+        // 2. У элемента с классом btn необходимо убрать класс "btn-secondary", если он присутствует у этого элемента, либо добавить, если такого класса у элемента не было.
+        const btnEl = document.querySelector('.btn');
+        btnEl.classList.toggle('btn-secondary');
+        console.log(btnEl);
+        // Если класс у элемента есть, метод classList.toggle ведёт себя как classList.remove и класс у элемента убирает. А если указанного класса у элемента нет, то classList.toggle, как и classList.add, добавляет элементу этот класс.
+
+
+
+        // 3. Необходимо удалить класс "dropdown-menu" у элемента, у которого присутствует класс "menu".
+        const menuEl = document.querySelector('.menu');
+        menuEl.classList.remove('dropdown-menu');
+        console.log(menuEl);
+
+
+
+        // 4. Используя метод insertAdjacentHTML добавьте после div'a с классом "dropdown" следующую разметку: `<a href="#">link</a>`
+        let divEl = document.querySelector('.dropdown');
+        divEl.insertAdjacentHTML('afterEnd', '<a href="#">link</a>');
+        console.log(divEl);
+        //Метод insertAdjacentHTML позволяет вставить строку HTML кода в любое место страницы. Код вставляется относительно опорного элемента. Можно сделать вставку перед опорным элементом (способ вставки 'beforeBegin'), после него (способ вставки 'afterEnd'), а также в начало (способ вставки 'afterBegin') или в конец (способ вставки 'beforeEnd') опорного элемента.
+        //Синтаксис
+        // опорный элемент.insertAdjacentHTML(способ вставки, код для вставки);
+
+
+
+        // 5. У элемента с id "dropdownMenuButton" замените id на "superDropdown".
+        const dropdownMenuButtonEl = document.getElementById('dropdownMenuButton').id = 'superDropdown';
+        console.log(dropdownMenuButtonEl);
+
+
+
+        // 6. Добавьте атрибут data-dd со значением 3 элементу у которого существует атрибут "aria-labelledby" равный "dropdownMenuButton" используя dataset.
+        const ariaLabelledbyEl = document.querySelector('[aria-labelledby="dropdownMenuButton"]')
+        ariaLabelledbyEl.dataset.dd = "3";
+        console.log(ariaLabelledbyEl);
+
+        //Свойство .dataset позволяет нам хранить пользовательские данные в HTML-разметке, используя атрибуты данных (data-attributes), и легко получать доступ к этим данным из JavaScript. Атрибуты данных имеют префикс data-, за которым следует произвольное имя, которое мы определяем. Например, data-name, data-age, и т.д.
+
+        //Свойство .dataset представляет собой объект, содержащий все атрибуты данных элемента в виде ключей и соответствующих им значений.
+        // Примеры использования
+        // 1. Хранение данных в HTML
+        // 2. Изменение данных через JavaScript
+        // 3. Использование данных для динамического создания контента
+
+
+        // 7. Удалите атрибут type у элемента с классом "dropdown-toggle".
+        const dropdownToggleEl = document.querySelector('.dropdown-toggle').removeAttribute('type');
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>
